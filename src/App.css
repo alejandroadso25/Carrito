@@ -84,6 +84,16 @@
   font-size: 0.95rem;
 }
 
+/* Mensajes para indicar la carga del catálogo o informar un error de la API. */
+.estado {
+  padding: 18px 0;
+  color: #66738a;
+}
+
+.estado-error {
+  color: #8a2f37;
+}
+
 /* Botones con estados visibles al pasar el cursor o navegar con teclado. */
 .btn {
   flex: 0 0 auto;

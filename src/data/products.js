@@ -1,7 +1,10 @@
-// Catálogo que utiliza la tienda para mostrar los productos disponibles.
-export const products = [
-  { id: 1, name: 'camiseta', price: 2000 },
-  { id: 2, name: 'pantalon', price: 3000 },
-  { id: 3, name: 'zapatilla', price: 4000 },
-  { id: 4, name: 'gorra', price: 1000 },
-]
+// Obtiene los productos de Fake Store API.
+export async function obtenerProductos() {
+  const respuesta = await fetch('https://fakestoreapi.com/products')
+
+  if (!respuesta.ok) {
+    throw new Error(`No se pudieron cargar los productos (${respuesta.status}).`)
+  }
+
+  return respuesta.json()
+}

@@ -26,7 +26,8 @@ function Carrito() {
       {items.map((item) => (
         <div key={item.id} className="fila">
           <div>
-            <p className="fila-nombre">{item.name}</p>
+            {/* title es el campo de nombre que devuelve la API. */}
+            <p className="fila-nombre">{item.title}</p>
             <p className="fila-detalle">
               {item.cantidad} x ${item.price.toLocaleString('es-CO')}
             </p>
