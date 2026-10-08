@@ -1,184 +1,163 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+/* Contenedor principal que mantiene el contenido centrado y legible. */
+.app {
+  width: min(100% - 32px, 1000px);
+  margin: 0 auto;
+  padding: 32px 0 48px;
 }
 
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
-}
-
-#center {
+/* Encabezado de la tienda con el contador visible del carrito. */
+.encabezado {
   display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  padding: 20px 24px;
+  color: #fff;
+  background: #2457a7;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgb(36 87 167 / 16%);
+}
+
+.encabezado h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.insignia {
+  display: grid;
+  width: 42px;
+  height: 42px;
   place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+  color: #2457a7;
+  font-weight: 700;
+  background: #fff;
+  border-radius: 50%;
 }
 
-#next-steps {
+/* En pantallas amplias, catálogo y carrito se muestran en columnas. */
+.contenido {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+/* Paneles blancos para separar visualmente el catálogo y el carrito. */
+.panel {
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #e1e7f0;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgb(31 50 81 / 6%);
+}
+
+.panel h2 {
+  margin: 0 0 18px;
+  color: #243047;
+  font-size: 1.35rem;
+}
+
+/* Cada producto se presenta en una fila con precio y acción. */
+.fila {
   display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e9edf4;
 }
 
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
+.fila:last-of-type {
+  border-bottom: 0;
 }
 
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
+.fila-nombre {
+  margin: 0 0 4px;
+  color: #243047;
+  font-weight: 700;
+  text-transform: capitalize;
 }
 
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
+.fila-detalle {
+  margin: 0;
+  color: #66738a;
+  font-size: 0.95rem;
 }
 
-.ticks {
-  position: relative;
+/* Botones con estados visibles al pasar el cursor o navegar con teclado. */
+.btn {
+  flex: 0 0 auto;
+  padding: 9px 14px;
+  color: #fff;
+  font-weight: 700;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:focus-visible {
+  outline: 3px solid #8db8ff;
+  outline-offset: 2px;
+}
+
+.btn-primario {
+  background: #2457a7;
+}
+
+.btn-primario:hover {
+  background: #194580;
+}
+
+.btn-secundario {
+  color: #8a2f37;
+  background: #fbeaec;
+}
+
+.btn-secundario:hover {
+  background: #f6d7da;
+}
+
+.btn-bloque {
   width: 100%;
+  margin-top: 20px;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
+/* Mensaje mostrado cuando el carrito todavía no tiene productos. */
+.vacio {
+  padding: 18px 0 4px;
+  color: #66738a;
+  text-align: center;
+}
+
+/* Resaltamos el total para que sea fácil de encontrar. */
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 16px;
+  color: #243047;
+  border-top: 2px solid #e9edf4;
+}
+
+/* En pantallas pequeñas, colocamos los paneles uno debajo del otro. */
+@media (max-width: 680px) {
+  .app {
+    width: min(100% - 24px, 480px);
+    padding-top: 20px;
   }
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
+  .encabezado,
+  .panel {
+    padding: 18px;
   }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
+
+  .contenido {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 }

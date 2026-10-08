@@ -2,6 +2,7 @@
 import Header from './components/header'
 import  ListProducts from './components/listproducts'
 import Carrito from './components/carrito'
+import './App.css'
 
 // Componente principal de la aplicación
 function App() {
